@@ -1,0 +1,33 @@
+<h2>Adicionar disciplina</h2>
+
+<form action="salvarDisciplina" method="POST">{% csrf_token %}
+
+    <input name="idAluno" type="hidden" value="{{aluno.id}}">
+
+    <p>Nome<br />
+    <input type="text" name="nome" id="nome" value="{{aluno.nome}}" readonly></p>
+    <p>Curso<br />
+    <input type="text" name="nome" id="nome" value="{{aluno.curso.nome}}" readonly></p>
+    <span>Semestre
+    <input type="text" name="semestre" id="semestre"></span>
+    <span>Disciplina
+    <select class="form-control" name="idDisciplina">
+        <option>Selecione...</option>
+        {% for disciplina in disciplinas %}
+            <option value="{{ disciplina.id }}"> 
+                {{ disciplina.nome }} 
+            </option>
+        {% endfor %}  
+    </select></span>
+    <span>Situação
+    <select class="form-control" name="situacao">
+        <option>Selecione...</option>
+        {% for key, value in situacoes.items %}
+            <option value="{{ key }}"> 
+                {{ value }} 
+            </option>
+        {% endfor %} 
+    </select></span>
+    <p><button>Salvar</button></p>
+</form>
+<p><a href="/alunos/{{aluno.id}}/disciplinas">Voltar</a></p>

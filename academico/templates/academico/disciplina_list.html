@@ -1,0 +1,12 @@
+{% block content %}
+    <h2>Disciplinas</h2>
+    <ul>
+        {% for disciplina in object_list %}
+            <li>{{ disciplina.nome }}</li>
+            <a href="/disciplinas/{{ disciplina.id }}/carregar">(Atualizar)</a>
+            <a href="/disciplinas/{{ disciplina.id }}/excluir">(Excluir)</a>
+        {% endfor %}
+    </ul>
+    <p><a href="/disciplinas/inserir">Inserir Disciplina</a></p>
+    <p><a href="/">Voltar</a></p>
+{% endblock %}

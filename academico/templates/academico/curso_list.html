@@ -1,0 +1,13 @@
+{% block content %}
+    <h2>Cursos</h2>
+    <ul>
+        {% for curso in object_list %}
+            <li>{{ curso.nome }}</li>
+            <a href="/cursos/{{ curso.id }}/excluir">(Excluir)</a>
+            <a href="/cursos/{{ curso.id }}/disciplinas">(Listar Disciplinas)</a>
+            <a href="/cursos/{{ curso.id }}/alunos">(Listar Alunos)</a>
+        {% endfor %}
+    </ul>
+    <p><a href="/cursos/inserir">Inserir Curso</a></p>
+    <p><a href="/">Voltar</a></p>
+{% endblock %}

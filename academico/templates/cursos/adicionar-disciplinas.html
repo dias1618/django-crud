@@ -1,0 +1,16 @@
+<form action="salvar" method="POST">{% csrf_token %}
+
+    Nome
+    <input type="text" name="nome" id="nome" value="{{curso.nome}}" readonly>
+    Disciplina
+    <select class="form-control" name="idDisciplina">
+        <option>Select Item</option>
+        {% for disciplina in disciplinas %}
+            <option value="{{ disciplina.id }}"> 
+                {{ disciplina.nome }} 
+            </option>
+        {% endfor %}
+    </select>
+    <button>Salvar</button>
+    <p><a href="/cursos/{{ curso.id }}/disciplinas">Voltar</a></p>
+</form>

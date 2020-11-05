@@ -1,0 +1,12 @@
+{% block content %}
+    <h2>Alunos</h2>
+    <ul>
+        {% for aluno in object_list %}
+            <li>{{ aluno.nome }} - ({{aluno.curso.nome}})</li>
+            <a href="/alunos/{{ aluno.id }}/excluir">(Excluir)</a>
+            <a href="/alunos/{{ aluno.id }}/disciplinas">(Listar disciplinas)</a>
+        {% endfor %}
+    </ul>
+    <p><a href="/alunos/inserir">Inserir Aluno</a></p>
+    <p><a href="/">Voltar</a></p>
+{% endblock %}
